@@ -1,12 +1,11 @@
-// src/components/Header/Header.tsx
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 
 type HeaderProps = {
-  cartCount: number;
+  cartItemCount: number;
 };
 
-const Header: React.FC<HeaderProps> = ({ cartCount }) => {
+const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
   return (
     <header
       style={{
@@ -20,7 +19,6 @@ const Header: React.FC<HeaderProps> = ({ cartCount }) => {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        {/* UT Longhorn Logo */}
         <img
           src="/ut-longhorn-icon.jpg"
           alt="UT Longhorn Logo"
@@ -30,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount }) => {
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <FaShoppingCart />
-        <span>Cart Items: {cartCount}</span>
+        <span>Cart Items: {cartItemCount}</span>
       </div>
     </header>
   );

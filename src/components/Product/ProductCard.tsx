@@ -2,7 +2,7 @@ import React from 'react';
 
 type ProductCardProps = {
   product: { id: number; name: string; price: number };
-  addToCart: (product: { id: number; name: string; price: number }) => void;
+  addToCart: () => void; // Simplified for this implementation
   viewDetails: () => void;
 };
 
@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart, viewDetai
             borderRadius: '5px',
             cursor: 'pointer',
           }}
-          onClick={() => addToCart(product)}
+          onClick={addToCart}
         >
           Add to Cart
         </button>

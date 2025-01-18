@@ -1,54 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 import Header from '../components/Header/Header';
 import ProductCard from '../components/Product/ProductCard';
 import productList from '../models/Products/productList';
+import ProductDetails from '../components/Product/ProductDetails';
 
 const HomePage: React.FC = () => {
-  const router = useRouter();
-  const { cart: cartString } = router.query;
+  const [cartItemCount, setCartItemCount] = useState(0);
+  const [viewingProduct, setViewingProduct] = useState<number | null>(null);
 
-  const [cart, setCart] = useState<{ id: number; name: string; price: number; quantity: number }[]>([]);
-
-  useEffect(() => {
-    if (cartString) {
-      try {
-        setCart(JSON.parse(cartString as string));
-      } catch {
-        setCart([]);
-      }
-    }
-  }, [cartString]);
-
-  const addToCart = (product: { id: number; name: string; price: number }) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prevCart, { ...product, quantity: 1 }];
-    });
+  const incrementCartCount = (quantity: number = 1) => {
+    setCartItemCount((prevCount) => prevCount + quantity);
   };
 
-  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  if (viewingProduct !== null) {
+    const product = productList.find((p) => p.id === viewingProduct);
+    if (!product) return <p>Product not found!</p>;
+
+    return (
+      <ProductDetails
+        product={product}
+        cartItemCount={cartItemCount} // Pass the correct count
+        incrementCartCount={incrementCartCount} // Pass the function to update count
+        goBack={() => setViewingProduct(null)}
+      />
+    );
+  }
 
   return (
     <div>
-      <Header cartCount={cartCount} />
+      <Header cartItemCount={cartItemCount} />
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {productList.map((product) => (
           <ProductCard
             key={product.id}
             product={product}
-            addToCart={addToCart}
-            viewDetails={() =>
-              router.push({
-                pathname: `/product/${product.id}`,
-                query: { cart: JSON.stringify(cart) },
-              })
-            }
+            addToCart={() => incrementCartCount(1)} // Ensure the count is updated here
+            viewDetails={() => setViewingProduct(product.id)}
           />
         ))}
       </div>

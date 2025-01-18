@@ -1,31 +1,26 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import productList from '../../models/Products/productList';
 import ProductDetails from '../../components/Product/ProductDetails';
 
 const ProductPage: React.FC = () => {
   const router = useRouter();
-  const { cart: cartString } = router.query;
+  const { id } = router.query;
 
-  const cart = cartString ? JSON.parse(cartString as string) : [];
+  const product = productList.find((p) => p.id === parseInt(id as string, 10));
 
-  const addToCart = (product: { id: number; name: string; price: number }) => {
-    const updatedCart = [...cart];
-    const existingItem = updatedCart.find((item) => item.id === product.id);
+  if (!product) {
+    return <p>Product not found!</p>;
+  }
 
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      updatedCart.push({ ...product, quantity: 1 });
-    }
-
-    // Update query parameters with the new cart state
-    router.push({
-      pathname: router.pathname,
-      query: { ...router.query, cart: JSON.stringify(updatedCart) },
-    });
-  };
-
-  return <ProductDetails cart={cart} addToCart={addToCart} />;
+  return (
+    <ProductDetails
+      product={product}
+      cartItemCount={0} // Replace with global state if needed
+      incrementCartCount={() => {}} // Replace with global state if needed
+      goBack={() => router.push('/')}
+    />
+  );
 };
 
 export default ProductPage;
