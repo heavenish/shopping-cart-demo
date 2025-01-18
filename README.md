@@ -49,6 +49,7 @@ Open http://localhost:3000 in your browser to see the app.
 
 # Usage
 Add to Cart: Click on the "Add to Cart" button for any product to increase the cart count.
+
 Dynamic Cart Count: The cart count in the header updates automatically when products are added.
 
 # Learn More
