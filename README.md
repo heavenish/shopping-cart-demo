@@ -32,12 +32,12 @@ Modern UI: Utilizes React icons for a shopping cart icon in the header.
 # Getting Started
 To get started with this project, clone the repository and install dependencies.
 
-# Install Dependencies
+Install Dependencies
 Run the following command to install dependencies:
 
 npm install
 
-# Run Development Server
+Run Development Server
 Start the development server with:
 
 npm run dev
@@ -45,19 +45,8 @@ npm run dev
 Open http://localhost:3000 in your browser to see the app.
 
 # Project Structure
-src/
-├── components/
-│   ├── Header/
-│   │   └── Header.tsx         # Header with cart count and icon
-│   ├── Product/
-│   │   └── ProductCard.tsx    # Product card for individual product display
-├── models/
-│   ├── Products/
-│   │   └── productList.ts     # Static product list
-├── pages/
-│   └── index.tsx              # Main landing page
-└── styles/
-    └── globals.css            # Global CSS for styling
+![image](https://github.com/user-attachments/assets/d255b7dc-d60b-47f8-845d-66c1759d608c)
+
 
 # Usage
 Add to Cart: Click on the "Add to Cart" button for any product to increase the cart count.
