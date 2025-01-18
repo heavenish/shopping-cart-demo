@@ -1,12 +1,13 @@
-// src/components/Header/Header.tsx
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 import { FaShoppingCart } from 'react-icons/fa';
 
-type HeaderProps = {
-  cartCount: number;
-};
+const Header: React.FC = () => {
+  const cartCount = useSelector((state: RootState) =>
+    state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
+  );
 
-const Header: React.FC<HeaderProps> = ({ cartCount }) => {
   return (
     <header
       style={{
@@ -20,7 +21,6 @@ const Header: React.FC<HeaderProps> = ({ cartCount }) => {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        {/* UT Longhorn Logo */}
         <img
           src="/ut-longhorn-icon.jpg"
           alt="UT Longhorn Logo"

@@ -1,7 +1,7 @@
 import React from 'react';
 
 type ProductCardProps = {
-  product: { id: number; name: string; price: number };
+  product: { id: number; name: string; price: number; description?: string };
   addToCart: (product: { id: number; name: string; price: number }) => void;
   viewDetails: () => void;
 };

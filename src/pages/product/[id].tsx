@@ -1,17 +1,20 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 import ProductDetails from '../../components/Product/ProductDetails';
+import { addToCart } from '../../store/slices/cartSlice';
 
-type ProductPageProps = {
-  cart: { id: number; name: string; price: number; quantity: number }[];
-  addToCart: (product: { id: number; name: string; price: number }) => void;
-};
-
-const ProductPage: React.FC<ProductPageProps> = ({ cart, addToCart }) => {
+const ProductPage: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
+  const dispatch = useDispatch();
 
-  return <ProductDetails cart={cart} addToCart={addToCart} productId={id} />;
+  return (
+    <ProductDetails
+      productId={id}
+      addToCart={(product) => dispatch(addToCart(product))}
+    />
+  );
 };
 
 export default ProductPage;
