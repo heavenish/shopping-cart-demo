@@ -1,12 +1,12 @@
 import React from 'react';
+import AddToCartButton from '../../features/Shopping/addToCart';
 
 type ProductCardProps = {
   product: { id: number; name: string; price: number; description?: string };
-  addToCart: (product: { id: number; name: string; price: number }) => void;
   viewDetails: () => void;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart, viewDetails }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, viewDetails }) => {
   return (
     <div
       style={{
@@ -22,19 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart, viewDetai
       <h3>{product.name}</h3>
       <p>Price: ${product.price}</p>
       <div style={{ display: 'flex', gap: '10px' }}>
-        <button
-          style={{
-            padding: '10px 15px',
-            backgroundColor: '#BF5700',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-          }}
-          onClick={() => addToCart(product)}
-        >
-          Add to Cart
-        </button>
+        <AddToCartButton product={product} />
         <button
           style={{
             padding: '10px 15px',

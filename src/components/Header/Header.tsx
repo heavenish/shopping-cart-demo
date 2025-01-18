@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import { RootState } from '../../store/store';
 import { FaShoppingCart } from 'react-icons/fa';
 
 const Header: React.FC = () => {
-  const cartCount = useSelector((state: RootState) =>
-    state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
-  );
+  const cartCount = useSelector((state: RootState) => state.cart.cartCount);
+  const router = useRouter();
 
   return (
     <header
@@ -20,7 +20,15 @@ const Header: React.FC = () => {
         color: '#fff',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+          cursor: 'pointer',
+        }}
+        onClick={() => router.push('/')}
+      >
         <img
           src="/ut-longhorn-icon.jpg"
           alt="UT Longhorn Logo"
@@ -28,7 +36,10 @@ const Header: React.FC = () => {
         />
         <h1>Shopping Cart Demo</h1>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <div
+        style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}
+        onClick={() => router.push('/checkout')}
+      >
         <FaShoppingCart />
         <span>Cart Items: {cartCount}</span>
       </div>
