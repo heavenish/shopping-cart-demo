@@ -6,13 +6,12 @@ import Header from '../../components/Header/Header';
 type ProductDetailsProps = {
   cart: { id: number; name: string; price: number; quantity: number }[];
   addToCart: (product: { id: number; name: string; price: number }) => void;
+  productId: string | string[] | undefined;
 };
 
-const ProductDetails: React.FC<ProductDetailsProps> = ({ cart, addToCart }) => {
+const ProductDetails: React.FC<ProductDetailsProps> = ({ cart, addToCart, productId }) => {
   const router = useRouter();
-  const { id } = router.query;
-
-  const product = productList.find((item) => item.id === parseInt(id as string, 10));
+  const product = productList.find((item) => item.id === parseInt(productId as string, 10));
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   if (!product) {
@@ -51,12 +50,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ cart, addToCart }) => {
               borderRadius: '5px',
               cursor: 'pointer',
             }}
-            onClick={() =>
-              router.push({
-                pathname: '/',
-                query: { cart: JSON.stringify(cart) },
-              })
-            }
+            onClick={() => router.push('/')}
           >
             Back to Products
           </button>
