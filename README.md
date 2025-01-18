@@ -6,7 +6,7 @@ This is a **Shopping Cart Demo** built using [Next.js](https://nextjs.org), a mo
 
 This project includes multiple branches to demonstrate different features and improvements step-by-step:
 
-1. **Basic**:
+1. **Basic**(current):
    - Basic shopping cart functionality.
    - Product listing and dynamic cart count in the header.
 2. **Prop Drilling**:
@@ -47,16 +47,9 @@ Open http://localhost:3000 in your browser to see the app.
 # Project Structure
 ![image](https://github.com/user-attachments/assets/d255b7dc-d60b-47f8-845d-66c1759d608c)
 
-
 # Usage
 Add to Cart: Click on the "Add to Cart" button for any product to increase the cart count.
 Dynamic Cart Count: The cart count in the header updates automatically when products are added.
-
-# Next Steps
-This is Step 1 of the demo. Future iterations include:
-**Step 2.** Prop Drilling: Add a product details page and demonstrate prop drilling.
-**Step 3.** Redux Integration: Replace React useState with Redux for managing cart state and add a checkout page.
-**Step 4.** Modularization: Refactor the addToCart functionality into a reusable component used across the project.
 
 # Learn More
 To learn more about Next.js, take a look at the following resources:
