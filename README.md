@@ -1,40 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Shopping Cart Demo
 
-## Getting Started
+This is a **Shopping Cart Demo** built using [Next.js](https://nextjs.org), a modern React framework. The project demonstrates a simple shopping cart functionality with product listing, add-to-cart feature, and a dynamic cart count displayed in the header. It includes multiple branches to showcase different features and implementation approaches.
 
-First, run the development server:
+## Branch Overview
 
-```bash
+This project includes multiple branches to demonstrate different features and improvements step-by-step:
+
+1. **Step 1. Basic**:
+   - Basic shopping cart functionality.
+   - Product listing and dynamic cart count in the header.
+2. **Step 2. Prop Drilling**:
+   - Adds a product details page.
+   - Demonstrates prop drilling to update the cart from the product details page.
+3. **Step 3. Redux Integration**:
+   - Introduces Redux for global state management.
+   - Includes a checkout page with detailed cart items.
+4. **Step 4. Modularization**:
+   - Refactors the `addToCart` functionality into a reusable component.
+   - Adds a shared **Add to Cart Button** used across the project.
+
+Switch between these branches to learn about incremental improvements in the project. Use the following command to switch branches:
+
+git checkout branch-name
+
+# Features
+Product List: Displays a list of products with their names, prices, and an "Add to Cart" button.
+Dynamic Shopping Cart: The cart count updates dynamically as products are added.
+Modular Components: Reusable Header and ProductCard components for better code organization.
+Modern UI: Utilizes React icons for a shopping cart icon in the header.
+
+# Getting Started
+To get started with this project, clone the repository and install dependencies.
+
+# Install Dependencies
+Run the following command to install dependencies:
+
+npm install
+
+# Run Development Server
+Start the development server with:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the app.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# Project Structure
+src/
+├── components/
+│   ├── Header/
+│   │   └── Header.tsx         # Header with cart count and icon
+│   ├── Product/
+│   │   └── ProductCard.tsx    # Product card for individual product display
+├── models/
+│   ├── Products/
+│   │   └── productList.ts     # Static product list
+├── pages/
+│   └── index.tsx              # Main landing page
+└── styles/
+    └── globals.css            # Global CSS for styling
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# Usage
+Add to Cart: Click on the "Add to Cart" button for any product to increase the cart count.
+Dynamic Cart Count: The cart count in the header updates automatically when products are added.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+# Next Steps
+This is Step 1 of the demo. Future iterations include:
+Step 2. Prop Drilling: Add a product details page and demonstrate prop drilling.
+Step 3. Redux Integration: Replace React useState with Redux for managing cart state and add a checkout page.
+Step 4. Modularization: Refactor the addToCart functionality into a reusable component used across the project.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
+# Learn More
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - An interactive Next.js tutorial.
