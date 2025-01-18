@@ -1,42 +1,79 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* Pure white for background */
+  --foreground: #333333; /* Complementary dark gray text */
+  --primary-color: #BF5700; /* Burnt orange (UT's primary color) */
+  --secondary-color: #333f48; /* Dark gray for borders or secondary text */
+  --accent-color: #D6D2C4; /* Light neutral beige for highlights */
+
+  --font-family: 'Inter', Arial, Helvetica, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
+html, body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background); /* White background */
+  color: var(--foreground); /* Dark gray text */
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 a {
-  color: inherit;
+  color: var(--primary-color);
   text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  color: var(--secondary-color);
+}
+
+header {
+  background-color: var(--primary-color); /* Burnt orange background */
+  color: #fff; /* White text for contrast */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--secondary-color); /* Optional border for definition */
+}
+
+header a {
+  color: #fff; /* White links in the header */
+}
+
+header a:hover {
+  color: var(--accent-color); /* Neutral beige on hover for subtle effect */
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #9a4500; /* Slightly darker burnt orange on hover */
+}
+
+footer {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+  padding: 20px;
+  text-align: center;
+  font-size: 0.875rem;
 }
