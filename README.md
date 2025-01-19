@@ -18,6 +18,7 @@ This project includes multiple branches to demonstrate different features and im
 4. **Modularization**:
    - Refactors the `addToCart` functionality into a reusable component.
    - Adds a shared **Add to Cart Button** used across the project.
+   - Adds a checkout page.
 
 Switch between these branches to learn about incremental improvements in the project. Use the following command to switch branches:
 
@@ -27,7 +28,6 @@ git checkout branch-name
 Product List: Displays a list of products with their names, prices, and an "Add to Cart" button.
 Dynamic Shopping Cart: The cart count updates dynamically as products are added.
 Modular Components: Reusable Header and ProductCard components for better code organization.
-Modern UI: Utilizes React icons for a shopping cart icon in the header.
 
 # Getting Started
 To get started with this project, clone the repository and install dependencies.
